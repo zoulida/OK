@@ -3,12 +3,15 @@ package activate;
 import java.rmi.*;
 import javax.naming.*;
 import java.rmi.activation.*;
+import java.rmi.registry.LocateRegistry;
 import java.io.File;
 import java.util.Properties;
 
 public class Setup{
   public static void main( String args[] ){
     try{
+    	//LocateRegistry.createRegistry(1099);
+    	
        Properties prop=new Properties();
        prop.put("java.security.policy",SimpleClient.class.getResource("server.policy").toString());
        ActivationGroupDesc group=new ActivationGroupDesc(prop,null);
@@ -28,6 +31,8 @@ new ActivationDesc(id,"activate.HelloServiceImpl",classURL,param2);
        HelloService s2=(HelloService)Activatable.register(desc2);
        System.out.println(s1.getClass().getName());
 
+       //LocateRegistry.createRegistry(1099);
+       
        Context namingContext=new InitialContext();
        //向rmiregistry注册两个激活对象
        namingContext.rebind( "rmi:HelloService1", s1 );

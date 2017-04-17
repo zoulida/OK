@@ -32,7 +32,7 @@ class Producer extends Thread {
           theStack.push(goods);
         }
         System.out.println(getName()+ ": push " + goods +" to "+theStack.getName());
-        try{Thread.sleep(500);}catch(InterruptedException e){
+        try{Thread.sleep(2500);}catch(InterruptedException e){
           throw new RuntimeException(e);
         }
       }
@@ -56,7 +56,7 @@ class Consumer extends Thread {
       for(;;) {
         goods = theStack.pop();
         System.out.println(getName() + ": pop " + goods +" from "+theStack.getName());
-        try{Thread.sleep(400);}catch(InterruptedException e){
+        try{Thread.sleep(2400);}catch(InterruptedException e){
           throw new RuntimeException(e);
         }
       } 
@@ -65,8 +65,4 @@ class Consumer extends Thread {
 }
 
 
-/****************************************************
- * 作者：孙卫琴                                     *
- * 来源：<<Java网络编程精解>>                       *
- * 技术支持网址：www.javathinker.org                *
- ***************************************************/
+

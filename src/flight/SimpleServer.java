@@ -1,6 +1,8 @@
 package flight;
 
 import java.rmi.*;
+import java.rmi.registry.LocateRegistry;
+
 import javax.naming.*;
 
 public class SimpleServer{
@@ -8,6 +10,8 @@ public class SimpleServer{
     try{
        FlightFactory factory  = new FlightFactoryImpl();
  
+       LocateRegistry.createRegistry(1099);
+       
        Context namingContext=new InitialContext();
        namingContext.rebind( "rmi:FlightFactory", factory );
         
@@ -22,8 +26,4 @@ public class SimpleServer{
 
 
 
-/****************************************************
- * 作者：孙卫琴                                     *
- * 来源：<<Java网络编程精解>>                       *
- * 技术支持网址：www.javathinker.org                *
- ***************************************************/
+

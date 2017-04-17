@@ -11,15 +11,15 @@ public class SimpleServer{
        HelloService service1 = new HelloServiceImpl("service1");
        HelloService service2 = new HelloServiceImpl("service2");
 
-       //LocateRegistry.createRegistry(1099);
+       LocateRegistry.createRegistry(1099);
        
        Context namingContext=new InitialContext();
        namingContext.rebind( "rmi:HelloService1", service1 );
        namingContext.rebind( "rmi:HelloService2", service2 );
-/*     
-       namingContext.rebind( "rmi://localhost:8000/HelloService1", service1 );
-       namingContext.rebind( "rmi://localhost:8000/HelloService1", service2 );
-*/   
+     
+       //java.rmi.Naming.rebind( "rmi://localhost:1099/HelloService1", service1 );
+       //java.rmi.Naming.rebind( "rmi://localhost:1099/HelloService1", service2 );
+  
     
        System.out.println( "服务器注册了两个HelloService对象" );
     }catch(Exception e){
