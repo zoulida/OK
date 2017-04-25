@@ -1,2 +1,0 @@
-rmid -J-Djava.security.policy=./activate/rmid.policy -port 1098
-rmiregistry
